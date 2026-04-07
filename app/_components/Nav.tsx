@@ -27,7 +27,7 @@ export function Nav() {
       >
         <div style={{ display: "flex", alignItems: "center", gap: 12 }}>
           <span className="font-display" style={{ fontSize: 22, fontWeight: 900, letterSpacing: "-0.02em" }}>
-            ТОЛК
+            ФОЛК ТЕХ
           </span>
           <span className="glow-dot" />
         </div>

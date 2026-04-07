@@ -2,7 +2,7 @@ import type { Metadata } from "next";
 import "./globals.css";
 
 export const metadata: Metadata = {
-  title: "ТОЛК — AI-разработка для реального бизнеса",
+  title: "ФОЛК ТЕХ — AI-разработка для реального бизнеса",
   description: "Разрабатываем ИИ-системы для госсектора и инфраструктурных компаний.",
 };
 
