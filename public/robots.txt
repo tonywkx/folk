@@ -1,0 +1,4 @@
+User-agent: *
+Allow: /
+
+Sitemap: https://folk-tech.ru/sitemap.xml
