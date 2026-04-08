@@ -22,12 +22,13 @@
 }
 
 * { box-sizing: border-box; margin: 0; padding: 0; }
-html { scroll-behavior: smooth; }
+html { scroll-behavior: smooth; overflow-x: hidden; }
 body {
   background: var(--bg);
   color: var(--text);
   font-family: 'Manrope', sans-serif;
   overflow-x: hidden;
+  width: 100%;
 }
 
 body::before {
@@ -113,6 +114,34 @@ body::before {
   animation: lineGrow 1s cubic-bezier(0.16,1,0.3,1) 0.4s both;
 }
 
+/* stats grid */
+.stats-grid {
+  display: grid;
+  grid-template-columns: 1fr;
+  max-width: 640px;
+  margin-inline: auto;
+}
+.stats-cell + .stats-cell {
+  border-top: 1px solid var(--border);
+}
+@media (min-width: 560px) {
+  .stats-grid {
+    grid-template-columns: repeat(2, 1fr);
+    max-width: none;
+  }
+  .stats-cell + .stats-cell {
+    border-top: none;
+  }
+  .stats-cell[data-index="0"],
+  .stats-cell[data-index="1"] {
+    border-bottom: 1px solid var(--border);
+  }
+  .stats-cell[data-index="0"],
+  .stats-cell[data-index="2"] {
+    border-right: 1px solid var(--border);
+  }
+}
+
 /* контейнер с горизонтальными отступами */
 .container {
   width: 100%;
@@ -124,3 +153,13 @@ body::before {
 ::-webkit-scrollbar { width: 3px; }
 ::-webkit-scrollbar-track { background: var(--bg); }
 ::-webkit-scrollbar-thumb { background: var(--muted2); }
+
+/* mobile fixes */
+@media (max-width: 480px) {
+  :root {
+    --px: clamp(16px, 5vw, 24px);
+  }
+  .container {
+    padding-inline: var(--px);
+  }
+}

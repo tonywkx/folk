@@ -5,19 +5,9 @@ export function StatsSection() {
   return (
     <section>
       <div className="container">
-        <div
-          className="md:grid-cols-4"
-          style={{ display: "grid", gridTemplateColumns: "repeat(2, 1fr)", borderBottom: "1px solid var(--border)" }}
-        >
+        <div className="stats-grid" style={{ borderTop: "1px solid var(--border)", borderBottom: "1px solid var(--border)" }}>
           {STATS.map((s, i) => (
-            <div
-              key={s.suffix}
-              style={{
-                borderRight: i % 2 === 0 ? "1px solid var(--border)" : "none",
-                borderBottom: i < 2 ? "1px solid var(--border)" : "none",
-              }}
-              className={i < 3 ? "md:border-r" : ""}
-            >
+            <div key={s.suffix} className="stats-cell" data-index={i}>
               <Stat {...s} />
             </div>
           ))}

@@ -6,14 +6,14 @@ export function HeroSection() {
   return (
     <section
       className="grid-bg"
-      style={{ minHeight: "100vh", paddingTop: 64, display: "flex", flexDirection: "column", justifyContent: "center" }}
+      style={{ minHeight: "100vh", paddingTop: 64, display: "flex", flexDirection: "column", justifyContent: "center", overflow: "hidden", position: "relative" }}
     >
       <div
         className="anim-glow"
         style={{
           position: "absolute",
-          width: 800,
-          height: 800,
+          width: "min(800px, 150vw)",
+          height: "min(800px, 150vw)",
           borderRadius: "50%",
           background: "radial-gradient(circle, rgba(212,255,78,0.05) 0%, transparent 70%)",
           top: "50%",

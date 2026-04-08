@@ -22,7 +22,7 @@ export function StepItem({ num, title, desc, delay }: StepItemProps) {
       <span
         className="font-display"
         style={{
-          fontSize: 72,
+          fontSize: "clamp(48px, 8vw, 72px)",
           fontWeight: 900,
           color: "var(--border2)",
           position: "absolute",
@@ -43,7 +43,7 @@ export function StepItem({ num, title, desc, delay }: StepItemProps) {
       </div>
       <h4
         className="font-display"
-        style={{ fontSize: "clamp(17px, 2vw, 22px)", fontWeight: 700, marginBottom: 10, paddingRight: 80 }}
+        style={{ fontSize: "clamp(17px, 2vw, 22px)", fontWeight: 700, marginBottom: 10, paddingRight: "clamp(48px, 8vw, 80px)" }}
       >
         {title}
       </h4>

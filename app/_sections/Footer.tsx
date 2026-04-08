@@ -5,9 +5,9 @@ export function Footer() {
         className="container"
         style={{ display: "flex", flexWrap: "wrap", alignItems: "center", justifyContent: "space-between", gap: 16 }}
       >
-        <div style={{ display: "flex", alignItems: "center", gap: 12 }}>
+        <div style={{ display: "flex", alignItems: "center", gap: 12, flexWrap: "wrap" }}>
           <span className="font-display" style={{ fontSize: 18, fontWeight: 900, letterSpacing: "-0.02em" }}>ФОЛК ТЕХ</span>
-          <span className="font-mono-custom" style={{ fontSize: 11, color: "var(--muted)", letterSpacing: "0.08em" }}>
+          <span className="hidden md:inline font-mono-custom" style={{ fontSize: 11, color: "var(--muted)", letterSpacing: "0.08em" }}>
             / ИИ-РАЗРАБОТКА ДЛЯ РЕАЛЬНОГО БИЗНЕСА
           </span>
         </div>
