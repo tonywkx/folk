@@ -32,7 +32,7 @@ export function HeroSection() {
         >
           <span className="glow-dot" />
           <span className="font-mono-custom" style={{ fontSize: 11, color: "var(--muted)", letterSpacing: "0.15em" }}>
-            ЗАКАЗНАЯ AI-РАЗРАБОТКА
+            ВЕБ · МОБАЙЛ · ИИ
           </span>
         </div>
 
@@ -53,8 +53,8 @@ export function HeroSection() {
           className="op0 anim-fade-up d300 visible"
           style={{ fontSize: "clamp(16px, 1.6vw, 20px)", color: "var(--muted)", maxWidth: 520, lineHeight: 1.8 }}
         >
-          Разрабатываем ИИ-системы для госсектора и инфраструктурных компаний. Виртуальные сотрудники,
-          компьютерное зрение, автоматизация полевой документации — всё работает в вашем контуре.
+          Строим веб и мобильные приложения под заказ — корпоративные системы, полевые инструменты,
+          продукты для пользователей. Встраиваем ИИ там, где это даёт реальный результат.
         </p>
 
         <div

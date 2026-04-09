@@ -6,6 +6,7 @@ import { ServicesSection } from "@/app/_sections/ServicesSection";
 import { WhyNowSection } from "@/app/_sections/WhyNowSection";
 import { HowWeWorkSection } from "@/app/_sections/HowWeWorkSection";
 import { AboutSection } from "@/app/_sections/AboutSection";
+import { CaseSection } from "@/app/_sections/CaseSection";
 import { CtaSection } from "@/app/_sections/CtaSection";
 import { Footer } from "@/app/_sections/Footer";
 
@@ -19,6 +20,7 @@ export default function Home() {
       <ServicesSection />
       <WhyNowSection />
       <HowWeWorkSection />
+      <CaseSection />
       <AboutSection />
       <CtaSection />
       <Footer />

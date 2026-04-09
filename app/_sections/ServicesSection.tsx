@@ -31,11 +31,11 @@ export function ServicesSection() {
             </h2>
           </div>
           <p style={{ fontSize: 15, color: "var(--muted)", maxWidth: 360, lineHeight: 1.8 }}>
-            Три направления, каждое — решённая задача, а не концепция. Внедрено в реальные корпоративные инфраструктуры.
+            От заказной разработки до ИИ-автоматизации. Каждое направление — решённая задача, внедрённая в реальную инфраструктуру.
           </p>
         </div>
         <div
-          className="md:grid-cols-3"
+          className="md:grid-cols-2 lg:grid-cols-4"
           style={{ display: "grid", gap: 1, background: "var(--border)", gridTemplateColumns: "1fr" }}
         >
           {SERVICES.map((s) => (
