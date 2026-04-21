@@ -1,4 +1,5 @@
 import { Nav } from "@/app/_components/Nav";
+import { CaseFloatButton } from "@/app/_components/CaseFloatButton";
 import { HeroSection } from "@/app/_sections/HeroSection";
 import { MarqueeSection } from "@/app/_sections/MarqueeSection";
 import { StatsSection } from "@/app/_sections/StatsSection";
@@ -24,6 +25,7 @@ export default function Home() {
       <AboutSection />
       <CtaSection />
       <Footer />
+      <CaseFloatButton />
     </div>
   );
 }
