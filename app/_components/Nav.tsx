@@ -37,10 +37,8 @@ export function Nav() {
             <a
               key={href}
               href={href}
-              className="font-mono-custom"
+              className="font-mono-custom hover-text"
               style={{ fontSize: 12, color: "var(--muted)", textDecoration: "none", transition: "color 0.2s", letterSpacing: "0.06em" }}
-              onMouseEnter={(e) => (e.currentTarget.style.color = "var(--text)")}
-              onMouseLeave={(e) => (e.currentTarget.style.color = "var(--muted)")}
             >
               {label}
             </a>
@@ -49,7 +47,7 @@ export function Nav() {
 
         <a
           href="#контакт"
-          className="hidden md:flex font-display"
+          className="hidden md:flex font-display hover-opacity"
           style={{
             alignItems: "center",
             fontSize: 11,
@@ -61,8 +59,6 @@ export function Nav() {
             textDecoration: "none",
             transition: "opacity 0.2s",
           }}
-          onMouseEnter={(e) => (e.currentTarget.style.opacity = "0.85")}
-          onMouseLeave={(e) => (e.currentTarget.style.opacity = "1")}
         >
           КОНСУЛЬТАЦИЯ
         </a>

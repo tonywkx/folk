@@ -1,6 +1,7 @@
 import type { Metadata } from "next";
 import Script from "next/script";
 import "./globals.css";
+import { CONTACT } from "@/app/_data/content";
 
 const siteUrl = "https://folk-tech.ru";
 
@@ -80,11 +81,11 @@ const jsonLd = {
   contactPoint: {
     "@type": "ContactPoint",
     contactType: "sales",
-    email: "tonywk@ya.ru",
-    telephone: "+7-912-744-9001",
+    email: CONTACT.email,
+    telephone: CONTACT.phoneDisplay,
     availableLanguage: "Russian",
   },
-  sameAs: ["https://t.me/tonywk"],
+  sameAs: [CONTACT.telegram],
   areaServed: "RU",
   serviceType: [
     "AI разработка",

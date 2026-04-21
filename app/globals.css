@@ -163,3 +163,16 @@ body::before {
     padding-inline: var(--px);
   }
 }
+
+/* hover utilities — заменяют onMouseEnter/Leave-обработчики */
+.hover-text:hover  { color: var(--text) !important; }
+.hover-accent:hover { color: var(--accent) !important; }
+.hover-opacity:hover { opacity: 0.85; }
+
+.hover-border-accent { transition: border-color 0.2s; }
+.hover-border-accent:hover { border-color: var(--accent) !important; }
+
+.hover-accent-border-color:hover {
+  border-color: var(--accent) !important;
+  color: var(--accent) !important;
+}

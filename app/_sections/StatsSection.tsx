@@ -7,7 +7,7 @@ export function StatsSection() {
       <div className="container">
         <div className="stats-grid" style={{ borderTop: "1px solid var(--border)", borderBottom: "1px solid var(--border)" }}>
           {STATS.map((s, i) => (
-            <div key={s.suffix} className="stats-cell" data-index={i}>
+            <div key={s.label} className="stats-cell" data-index={i}>
               <Stat {...s} />
             </div>
           ))}

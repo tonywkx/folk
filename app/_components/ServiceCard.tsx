@@ -75,13 +75,13 @@ export function ServiceCard({ icon: Icon, tag, title, desc, items, delay }: Serv
       </ul>
 
       <div
+        className="font-display"
         style={{
           marginTop: 32,
           display: "flex",
           alignItems: "center",
           gap: 8,
           fontSize: 11,
-          fontFamily: "Unbounded, sans-serif",
           letterSpacing: "0.08em",
           color: hovered ? "var(--accent)" : "var(--muted)",
           transition: "color 0.3s",

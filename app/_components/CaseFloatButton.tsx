@@ -49,16 +49,7 @@ export function CaseFloatButton() {
         (e.currentTarget as HTMLAnchorElement).style.borderColor = "var(--border2)";
       }}
     >
-      <span style={{
-        display: "inline-block",
-        width: 6,
-        height: 6,
-        borderRadius: "50%",
-        background: "var(--accent)",
-        boxShadow: "0 0 10px var(--accent)",
-        flexShrink: 0,
-        animation: "blink 2.5s ease-in-out infinite",
-      }} />
+      <span className="glow-dot" />
       <span className="font-mono-custom" style={{
         fontSize: 11,
         letterSpacing: "0.1em",

@@ -4,7 +4,6 @@ import { HeroSection } from "@/app/_sections/HeroSection";
 import { MarqueeSection } from "@/app/_sections/MarqueeSection";
 import { StatsSection } from "@/app/_sections/StatsSection";
 import { ServicesSection } from "@/app/_sections/ServicesSection";
-import { WhyNowSection } from "@/app/_sections/WhyNowSection";
 import { HowWeWorkSection } from "@/app/_sections/HowWeWorkSection";
 import { AboutSection } from "@/app/_sections/AboutSection";
 import { CaseSection } from "@/app/_sections/CaseSection";
@@ -19,7 +18,6 @@ export default function Home() {
       <MarqueeSection />
       <StatsSection />
       <ServicesSection />
-      <WhyNowSection />
       <HowWeWorkSection />
       <CaseSection />
       <AboutSection />

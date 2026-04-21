@@ -1,6 +1,5 @@
-"use client";
-
 import { ExternalLink, Mail, Phone } from "lucide-react";
+import { CONTACT } from "@/app/_data/content";
 
 export function CtaSection() {
   return (
@@ -41,8 +40,8 @@ export function CtaSection() {
         </p>
         <div style={{ display: "flex", flexWrap: "wrap", justifyContent: "center", gap: 16, marginBottom: 56 }}>
           <a
-            href="mailto:tonywk@ya.ru"
-            className="font-display"
+            href={`mailto:${CONTACT.email}`}
+            className="font-display hover-opacity"
             style={{
               fontSize: 12,
               fontWeight: 700,
@@ -56,14 +55,12 @@ export function CtaSection() {
               gap: 10,
               transition: "opacity 0.2s",
             }}
-            onMouseEnter={(e) => (e.currentTarget.style.opacity = "0.85")}
-            onMouseLeave={(e) => (e.currentTarget.style.opacity = "1")}
           >
             <Mail size={15} /> НАПИСАТЬ НА ПОЧТУ
           </a>
           <a
-            href="https://t.me/tonywk"
-            className="font-display"
+            href={CONTACT.telegram}
+            className="font-display hover-accent-border-color"
             style={{
               fontSize: 12,
               letterSpacing: "0.06em",
@@ -77,28 +74,24 @@ export function CtaSection() {
               gap: 10,
               transition: "all 0.2s",
             }}
-            onMouseEnter={(e) => { e.currentTarget.style.borderColor = "var(--accent)"; e.currentTarget.style.color = "var(--accent)"; }}
-            onMouseLeave={(e) => { e.currentTarget.style.borderColor = "var(--border2)"; e.currentTarget.style.color = "var(--text)"; }}
           >
             <ExternalLink size={14} /> TELEGRAM
           </a>
         </div>
         <div style={{ display: "flex", flexWrap: "wrap", justifyContent: "center", gap: 32, color: "var(--muted)", fontSize: 13 }}>
           <a
-            href="mailto:tonywk@ya.ru"
+            href={`mailto:${CONTACT.email}`}
+            className="hover-text"
             style={{ display: "flex", alignItems: "center", gap: 8, color: "var(--muted)", textDecoration: "none", transition: "color 0.2s" }}
-            onMouseEnter={(e) => (e.currentTarget.style.color = "var(--text)")}
-            onMouseLeave={(e) => (e.currentTarget.style.color = "var(--muted)")}
           >
-            <Mail size={13} /> tonywk@ya.ru
+            <Mail size={13} /> {CONTACT.email}
           </a>
           <a
-            href="tel:+79127449001"
+            href={`tel:${CONTACT.phone}`}
+            className="hover-text"
             style={{ display: "flex", alignItems: "center", gap: 8, color: "var(--muted)", textDecoration: "none", transition: "color 0.2s" }}
-            onMouseEnter={(e) => (e.currentTarget.style.color = "var(--text)")}
-            onMouseLeave={(e) => (e.currentTarget.style.color = "var(--muted)")}
           >
-            <Phone size={13} /> +7 912 744 9001
+            <Phone size={13} /> {CONTACT.phoneDisplay}
           </a>
         </div>
       </div>

@@ -1,64 +1,8 @@
 "use client";
 
-import { useReveal } from "@/app/_hooks/useReveal";
 import { useState, useRef, useEffect } from "react";
-
-function RevealDiv({ children, className, style, delay }: {
-  children: React.ReactNode;
-  className?: string;
-  style?: React.CSSProperties;
-  delay?: string;
-}) {
-  const ref = useReveal();
-  return (
-    <div ref={ref} className={`op0 anim-fade-up ${delay ?? "d100"} ${className ?? ""}`} style={style}>
-      {children}
-    </div>
-  );
-}
-
-const CASES = [
-  {
-    tag: "01 / ВЕБ-ПЛАТФОРМА",
-    title: "Платформа заказа 3D-фигурок по рисункам",
-    desc: "Мастера принимали заказы через мессенджеры вручную — без структуры, с потерями заявок и неполными данными от клиентов.",
-    challenges: [
-      "Заказы терялись в переписке без структуры",
-      "Клиенты не знали как описать желаемый результат",
-      "Ручная обработка каждой заявки занимала 15–20 минут",
-    ],
-    steps: [
-      { num: "01", title: "Canvas-редактор", desc: "Ребёнок рисует скетч прямо в браузере на любом устройстве." },
-      { num: "02", title: "Параметры заказа", desc: "Размер, покраска, категория — выбор в один клик без текста." },
-      { num: "03", title: "Edge Function", desc: "Supabase обрабатывает и хранит заказ без отдельного сервера." },
-      { num: "04", title: "Telegram-уведомление", desc: "Оператор получает фото + все данные мгновенно." },
-    ],
-    results: [
-      { value: "<1 мин", label: "от рисунка\nдо заявки оператору" },
-      { value: "0", label: "потерянных заказов\nс момента запуска" },
-    ],
-  },
-  {
-    tag: "02 / МОБИЛЬНАЯ РАЗРАБОТКА",
-    title: "Мобильное приложение для выездной службы",
-    desc: "Крупная корпоративная структура. Распределённая полевая команда, юридически значимые документы, строгие требования к ИБ.",
-    challenges: [
-      "Акты вручную — до часа на документ",
-      "Свободные формулировки и юридические риски",
-      "Ручной перенос данных в корпоративные системы",
-    ],
-    steps: [
-      { num: "01", title: "Геолокация", desc: "Адрес и данные объекта подтягиваются автоматически." },
-      { num: "02", title: "Голосовой ввод", desc: "ИИ переводит речь в нормативный формат документа." },
-      { num: "03", title: "Фото и формы", desc: "Фиксация параметров на месте без свободного ввода." },
-      { num: "04", title: "Синхронизация", desc: "PDF по шаблону — и автоматическая выгрузка в системы." },
-    ],
-    results: [
-      { value: "87%", label: "сокращение времени\nна оформление" },
-      { value: "6 нед", label: "от встречи\nдо рабочего MVP" },
-    ],
-  },
-] as const;
+import { RevealDiv } from "@/app/_components/RevealDiv";
+import { CASES } from "@/app/_data/content";
 
 function CaseSlider() {
   const [active, setActive] = useState(0);
@@ -68,8 +12,7 @@ function CaseSlider() {
 
   const go = (idx: number) => {
     if (idx === active) return;
-    const dir = idx > active ? "right" : "left";
-    setAnimDir(dir);
+    setAnimDir(idx > active ? "right" : "left");
     setVisible(false);
     timerRef.current = setTimeout(() => {
       setActive(idx);
@@ -84,15 +27,10 @@ function CaseSlider() {
   return (
     <div>
       {/* Табы */}
-      <div style={{
-        display: "flex",
-        gap: 1,
-        background: "var(--border)",
-        marginBottom: 1,
-      }}>
+      <div style={{ display: "flex", gap: 1, background: "var(--border)", marginBottom: 1 }}>
         {CASES.map((item, i) => (
           <button
-            key={i}
+            key={item.tag}
             onClick={() => go(i)}
             style={{
               flex: 1,
@@ -103,7 +41,6 @@ function CaseSlider() {
               textAlign: "left",
               transition: "background 0.2s",
               borderTop: active === i ? "2px solid var(--accent)" : "2px solid transparent",
-              position: "relative",
             }}
           >
             <div className="font-mono-custom" style={{
@@ -131,17 +68,11 @@ function CaseSlider() {
       {/* Контент */}
       <div style={{
         opacity: visible ? 1 : 0,
-        transform: visible
-          ? "translateX(0)"
-          : animDir === "right" ? "translateX(24px)" : "translateX(-24px)",
+        transform: visible ? "translateX(0)" : animDir === "right" ? "translateX(24px)" : "translateX(-24px)",
         transition: "opacity 0.26s ease, transform 0.26s ease",
       }}>
         {/* Описание */}
-        <div style={{
-          padding: "clamp(24px,3vw,40px)",
-          background: "var(--bg2)",
-          marginBottom: 1,
-        }}>
+        <div style={{ padding: "clamp(24px,3vw,40px)", background: "var(--bg2)", marginBottom: 1 }}>
           <p style={{ fontSize: 14, color: "var(--muted)", lineHeight: 1.8, maxWidth: 560 }}>
             {c.desc}
           </p>
@@ -187,10 +118,7 @@ function CaseSlider() {
         {/* Результаты */}
         <div style={{ display: "grid", gridTemplateColumns: "repeat(2, 1fr)", gap: 1, background: "var(--border)" }}>
           {c.results.map((r) => (
-            <div
-              key={r.label}
-              style={{ padding: "clamp(20px,2.5vw,36px)", background: "var(--bg2)" }}
-            >
+            <div key={r.label} style={{ padding: "clamp(20px,2.5vw,36px)", background: "var(--bg2)" }}>
               <div className="font-display" style={{
                 fontSize: "clamp(28px,3.5vw,48px)",
                 fontWeight: 900,
@@ -222,6 +150,7 @@ function CaseSlider() {
             <button
               key={i}
               onClick={() => go(i)}
+              aria-label={`Кейс ${i + 1}`}
               style={{
                 width: active === i ? 28 : 6,
                 height: 6,
@@ -238,6 +167,7 @@ function CaseSlider() {
         <div style={{ display: "flex", gap: 1 }}>
           <button
             onClick={() => go((active - 1 + CASES.length) % CASES.length)}
+            className="hover-text hover-border-accent"
             style={{
               width: 40, height: 40,
               background: "var(--bg3)",
@@ -248,13 +178,12 @@ function CaseSlider() {
               display: "flex", alignItems: "center", justifyContent: "center",
               transition: "color 0.2s, border-color 0.2s",
             }}
-            onMouseEnter={e => { (e.currentTarget as HTMLButtonElement).style.color = "var(--text)"; (e.currentTarget as HTMLButtonElement).style.borderColor = "var(--muted)"; }}
-            onMouseLeave={e => { (e.currentTarget as HTMLButtonElement).style.color = "var(--muted)"; (e.currentTarget as HTMLButtonElement).style.borderColor = "var(--border2)"; }}
           >
             ←
           </button>
           <button
             onClick={() => go((active + 1) % CASES.length)}
+            className="hover-text hover-border-accent"
             style={{
               width: 40, height: 40,
               background: "var(--bg3)",
@@ -265,8 +194,6 @@ function CaseSlider() {
               display: "flex", alignItems: "center", justifyContent: "center",
               transition: "color 0.2s, border-color 0.2s",
             }}
-            onMouseEnter={e => { (e.currentTarget as HTMLButtonElement).style.color = "var(--text)"; (e.currentTarget as HTMLButtonElement).style.borderColor = "var(--muted)"; }}
-            onMouseLeave={e => { (e.currentTarget as HTMLButtonElement).style.color = "var(--muted)"; (e.currentTarget as HTMLButtonElement).style.borderColor = "var(--border2)"; }}
           >
             →
           </button>
@@ -280,7 +207,6 @@ export function CaseSection() {
   return (
     <section id="кейс" style={{ padding: "var(--section-py) 0", borderTop: "1px solid var(--border)" }}>
       <div className="container">
-
         <RevealDiv delay="d100" style={{ marginBottom: "clamp(48px,6vw,80px)" }}>
           <div className="font-mono-custom" style={{ fontSize: 11, color: "var(--muted)", letterSpacing: "0.15em", marginBottom: 16 }}>
             {"// КЕЙСЫ"}
@@ -296,7 +222,6 @@ export function CaseSection() {
         <RevealDiv delay="d200">
           <CaseSlider />
         </RevealDiv>
-
       </div>
     </section>
   );

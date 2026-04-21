@@ -1,5 +1,3 @@
-"use client";
-
 import { ArrowRight, ChevronDown } from "lucide-react";
 
 export function HeroSection() {
@@ -63,7 +61,7 @@ export function HeroSection() {
         >
           <a
             href="#услуги"
-            className="font-display"
+            className="font-display hover-opacity"
             style={{
               fontSize: 12,
               fontWeight: 700,
@@ -77,14 +75,12 @@ export function HeroSection() {
               gap: 10,
               transition: "opacity 0.2s",
             }}
-            onMouseEnter={(e) => (e.currentTarget.style.opacity = "0.85")}
-            onMouseLeave={(e) => (e.currentTarget.style.opacity = "1")}
           >
             НАШИ УСЛУГИ <ArrowRight size={14} />
           </a>
           <a
             href="#контакт"
-            className="font-display"
+            className="font-display hover-accent-border-color"
             style={{
               fontSize: 12,
               letterSpacing: "0.06em",
@@ -98,8 +94,6 @@ export function HeroSection() {
               gap: 10,
               transition: "all 0.2s",
             }}
-            onMouseEnter={(e) => { e.currentTarget.style.borderColor = "var(--accent)"; e.currentTarget.style.color = "var(--accent)"; }}
-            onMouseLeave={(e) => { e.currentTarget.style.borderColor = "var(--border2)"; e.currentTarget.style.color = "var(--text)"; }}
           >
             ОБСУДИТЬ ПРОЕКТ
           </a>
