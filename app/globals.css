@@ -155,9 +155,9 @@ body::before {
 ::-webkit-scrollbar-thumb { background: var(--muted2); }
 
 /* mobile fixes */
-@media (max-width: 480px) {
+@media (max-width: 640px) {
   :root {
-    --px: clamp(16px, 5vw, 24px);
+    --px: 20px;
   }
   .container {
     padding-inline: var(--px);

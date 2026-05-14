@@ -4,18 +4,22 @@ import { useEffect, useState } from "react";
 
 export function CaseFloatButton() {
   const [show, setShow] = useState(false);
+  const [passed, setPassed] = useState(false);
 
   useEffect(() => {
     const section = document.getElementById("кейс");
     if (!section) return;
 
-    const obs = new IntersectionObserver(
-      ([entry]) => setShow(!entry.isIntersecting),
-      { threshold: 0.1 },
-    );
+    const update = () => {
+      const rect = section.getBoundingClientRect();
+      const isVisible = rect.top < window.innerHeight && rect.bottom > 0;
+      setShow(!isVisible);
+      setPassed(rect.bottom < 0);
+    };
 
-    obs.observe(section);
-    return () => obs.disconnect();
+    update();
+    window.addEventListener("scroll", update, { passive: true });
+    return () => window.removeEventListener("scroll", update);
   }, []);
 
   return (
@@ -58,7 +62,18 @@ export function CaseFloatButton() {
       }}>
         КЕЙСЫ
       </span>
-      <span style={{ color: "var(--accent)", fontSize: 12, lineHeight: 1 }}>↓</span>
+      <span
+        style={{
+          color: "var(--accent)",
+          fontSize: 12,
+          lineHeight: 1,
+          display: "inline-block",
+          transition: "transform 0.3s ease",
+          transform: passed ? "rotate(180deg)" : "none",
+        }}
+      >
+        ↓
+      </span>
     </a>
   );
 }

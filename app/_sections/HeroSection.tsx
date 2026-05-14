@@ -36,23 +36,22 @@ export function HeroSection() {
 
         <h1
           className="op0 anim-fade-up d100 visible font-display"
-          style={{ fontSize: "clamp(48px, 8.5vw, 112px)", fontWeight: 900, lineHeight: 1.0, letterSpacing: "-0.03em", maxWidth: 1000 }}
+          style={{ fontSize: "clamp(40px, 7vw, 96px)", fontWeight: 900, lineHeight: 1.05, letterSpacing: "-0.03em", maxWidth: "min(820px, 100%)" }}
         >
-          ИИ, <span style={{ color: "var(--accent)" }}>который</span>
+          Автоматизируем
           <br />
-          работает,
-          <br />
-          <span style={{ WebkitTextStroke: "1.5px var(--muted2)", color: "transparent" }}>а не впечатляет</span>
+          <span style={{ color: "var(--accent)" }}>рутину</span>{" "}
+          <span style={{ WebkitTextStroke: "1.5px var(--muted2)", color: "transparent" }}>бизнеса</span>
         </h1>
 
         <div className="accent-line" style={{ width: 80, marginTop: 36, marginBottom: 36 }} />
 
         <p
           className="op0 anim-fade-up d300 visible"
-          style={{ fontSize: "clamp(16px, 1.6vw, 20px)", color: "var(--muted)", maxWidth: 520, lineHeight: 1.8 }}
+          style={{ fontSize: "clamp(16px, 1.6vw, 20px)", color: "var(--muted)", maxWidth: 560, lineHeight: 1.8 }}
         >
-          Строим веб и мобильные приложения под заказ — корпоративные системы, полевые инструменты,
-          продукты для пользователей. Встраиваем ИИ там, где это даёт реальный результат.
+          Веб и мобильные приложения, ИИ-агенты и автоматизация процессов —
+          от первой встречи до рабочего MVP за 6 недель.
         </p>
 
         <div
