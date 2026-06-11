@@ -1,5 +1,7 @@
 import { Nav } from "@/app/_components/Nav";
 import { CaseFloatButton } from "@/app/_components/CaseFloatButton";
+import { ScrollProgress } from "@/app/_components/ScrollProgress";
+import { CursorGlow } from "@/app/_components/CursorGlow";
 import { HeroSection } from "@/app/_sections/HeroSection";
 import { MarqueeSection } from "@/app/_sections/MarqueeSection";
 import { StatsSection } from "@/app/_sections/StatsSection";
@@ -13,6 +15,8 @@ import { Footer } from "@/app/_sections/Footer";
 export default function Home() {
   return (
     <div style={{ background: "var(--bg)", minHeight: "100vh" }}>
+      <ScrollProgress />
+      <CursorGlow />
       <Nav />
       <HeroSection />
       <MarqueeSection />

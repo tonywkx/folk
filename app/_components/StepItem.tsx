@@ -19,6 +19,7 @@ export function StepItem({ num, title, desc, delay }: StepItemProps) {
       className={`op0 anim-fade-up ${delay} relative`}
       style={{ padding: "clamp(24px,3vw,36px) 0", borderTop: "1px solid var(--border)" }}
     >
+      <span className="step-line" aria-hidden />
       <span
         className="font-display"
         style={{

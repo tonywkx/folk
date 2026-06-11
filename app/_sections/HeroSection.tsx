@@ -1,4 +1,5 @@
 import { ArrowRight, ChevronDown } from "lucide-react";
+import { Hero3D } from "@/app/_components/Hero3D";
 
 export function HeroSection() {
   return (
@@ -20,6 +21,7 @@ export function HeroSection() {
           pointerEvents: "none",
         }}
       />
+      <Hero3D />
       <div
         className="container"
         style={{ paddingTop: "clamp(60px,8vh,120px)", paddingBottom: "clamp(60px,8vh,120px)", position: "relative" }}
@@ -36,7 +38,7 @@ export function HeroSection() {
 
         <h1
           className="op0 anim-fade-up d100 visible font-display"
-          style={{ fontSize: "clamp(40px, 7vw, 96px)", fontWeight: 900, lineHeight: 1.05, letterSpacing: "-0.03em", maxWidth: "min(820px, 100%)" }}
+          style={{ fontSize: "clamp(28px, 7.5vw, 96px)", fontWeight: 900, lineHeight: 1.05, letterSpacing: "-0.03em", maxWidth: "min(820px, 100%)" }}
         >
           Автоматизируем
           <br />

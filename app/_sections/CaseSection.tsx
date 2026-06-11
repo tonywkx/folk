@@ -66,10 +66,10 @@ function CaseSlider() {
       </div>
 
       {/* Контент */}
-      <div style={{
-        opacity: visible ? 1 : 0,
-        transform: visible ? "translateX(0)" : animDir === "right" ? "translateX(24px)" : "translateX(-24px)",
-        transition: "opacity 0.26s ease, transform 0.26s ease",
+      <div className={`case-pane${visible ? "" : " is-hidden"}`} style={{
+        transform: visible
+          ? "perspective(1200px) translateX(0) rotateY(0deg)"
+          : `perspective(1200px) translateX(${animDir === "right" ? 32 : -32}px) rotateY(${animDir === "right" ? -3 : 3}deg)`,
       }}>
         {/* Описание */}
         <div style={{ padding: "clamp(24px,3vw,40px)", background: "var(--bg2)", marginBottom: 1 }}>
@@ -80,8 +80,8 @@ function CaseSlider() {
 
         {/* Проблема + Решение */}
         <div
-          className="lg:grid-cols-2"
-          style={{ display: "grid", gridTemplateColumns: "1fr", gap: 1, background: "var(--border)", marginBottom: 1 }}
+          className="grid grid-cols-1 lg:grid-cols-2"
+          style={{ gap: 1, background: "var(--border)", marginBottom: 1 }}
         >
           <div style={{ padding: "clamp(24px,3vw,36px)", background: "var(--bg2)" }}>
             <div className="font-mono-custom" style={{ fontSize: 11, color: "var(--accent)", letterSpacing: "0.12em", marginBottom: 20 }}>

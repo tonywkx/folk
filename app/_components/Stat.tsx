@@ -12,7 +12,11 @@ export function Stat({ value, suffix, label }: StatProps) {
   const { count, ref } = useCountUp(value);
 
   return (
-    <div ref={ref} style={{ padding: "clamp(28px,4vw,48px) clamp(20px,3vw,36px)" }}>
+    <div
+      ref={ref}
+      className={`stat-cell${count > 0 ? " counted" : ""}`}
+      style={{ padding: "clamp(28px,4vw,48px) clamp(20px,3vw,36px)" }}
+    >
       <div
         className="font-display"
         style={{
@@ -24,6 +28,7 @@ export function Stat({ value, suffix, label }: StatProps) {
         }}
       >
         {count}{suffix}
+        <span className="stat-underline" aria-hidden />
       </div>
       <div
         style={{

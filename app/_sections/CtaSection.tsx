@@ -15,6 +15,7 @@ export function CtaSection() {
           pointerEvents: "none",
         }}
       />
+      <div className="cta-floor" aria-hidden />
       <div className="container" style={{ position: "relative", textAlign: "center" }}>
         <div className="font-mono-custom" style={{ fontSize: 11, color: "var(--muted)", letterSpacing: "0.15em", marginBottom: 24 }}>
           {"// НАЧАТЬ ПРОЕКТ"}

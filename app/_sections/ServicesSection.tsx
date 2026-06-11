@@ -36,8 +36,8 @@ export function ServicesSection() {
           </p>
         </div>
         <div
-          className="md:grid-cols-2 lg:grid-cols-4"
-          style={{ display: "grid", gap: 1, background: "var(--border)", gridTemplateColumns: "1fr" }}
+          className="grid grid-cols-1 md:grid-cols-2 xl:grid-cols-4"
+          style={{ gap: 1, background: "var(--border)" }}
         >
           {SERVICES.map((s) => (
             <ServiceCard key={s.tag} {...s} />

@@ -1,6 +1,6 @@
 "use client";
 
-import { useState } from "react";
+import { useRef, useState } from "react";
 import { ArrowRight, type LucideIcon } from "lucide-react";
 import { useReveal } from "@/app/_hooks/useReveal";
 import type { AnimDelay } from "@/app/_data/content";
@@ -17,21 +17,47 @@ interface ServiceCardProps {
 export function ServiceCard({ icon: Icon, tag, title, desc, items, delay }: ServiceCardProps) {
   const [hovered, setHovered] = useState(false);
   const ref = useReveal();
+  const cardRef = useRef<HTMLDivElement>(null);
+
+  const handleMove = (e: React.MouseEvent<HTMLDivElement>) => {
+    const card = cardRef.current;
+    if (!card) return;
+    const rect = card.getBoundingClientRect();
+    const px = (e.clientX - rect.left) / rect.width;
+    const py = (e.clientY - rect.top) / rect.height;
+    card.style.transform =
+      `perspective(900px) rotateX(${(0.5 - py) * 6}deg) rotateY(${(px - 0.5) * 6}deg) translateY(-4px)`;
+    card.style.setProperty("--glare-x", `${px * 100}%`);
+    card.style.setProperty("--glare-y", `${py * 100}%`);
+  };
+
+  const handleLeave = () => {
+    setHovered(false);
+    const card = cardRef.current;
+    if (card) card.style.transform = "";
+  };
 
   return (
     <div
       ref={ref}
       className={`op0 anim-fade-up ${delay} cursor-pointer`}
+      style={{ display: "grid" }}
+      onMouseEnter={() => setHovered(true)}
+      onMouseMove={handleMove}
+      onMouseLeave={handleLeave}
+    >
+    <div
+      ref={cardRef}
+      className="tilt-card"
       style={{
+        height: "100%",
         padding: "clamp(28px,3.5vw,48px)",
         background: hovered ? "var(--bg3)" : "var(--bg2)",
         borderTop: `2px solid ${hovered ? "var(--accent)" : "transparent"}`,
-        transition: "all 0.35s cubic-bezier(0.16,1,0.3,1)",
-        transform: hovered ? "translateY(-4px)" : "none",
+        transition: "background 0.35s, border-color 0.35s, transform 0.25s ease-out",
       }}
-      onMouseEnter={() => setHovered(true)}
-      onMouseLeave={() => setHovered(false)}
     >
+      <div className="tilt-glare" />
       <div
         style={{
           width: 48,
@@ -90,6 +116,7 @@ export function ServiceCard({ icon: Icon, tag, title, desc, items, delay }: Serv
         УЗНАТЬ БОЛЬШЕ
         <ArrowRight size={12} style={{ transform: hovered ? "translateX(4px)" : "none", transition: "transform 0.3s" }} />
       </div>
+    </div>
     </div>
   );
 }

@@ -6,8 +6,8 @@ export function HowWeWorkSection() {
     <section id="подход" style={{ padding: "var(--section-py) 0" }}>
       <div className="container">
         <div
-          className="lg:grid-cols-2"
-          style={{ display: "grid", gridTemplateColumns: "1fr", gap: "clamp(48px,6vw,96px)" }}
+          className="grid grid-cols-1 lg:grid-cols-2"
+          style={{ gap: "clamp(48px,6vw,96px)" }}
         >
           <div>
             <div className="font-mono-custom" style={{ fontSize: 11, color: "var(--muted)", letterSpacing: "0.15em", marginBottom: 16 }}>
